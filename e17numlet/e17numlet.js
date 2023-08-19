@@ -334,20 +334,33 @@ function getTens(ns){
 
 // #endregion
 
-// const beClear = `
-// ## My Template
+const splainYoSelf = `
+## My Template
+**bold** *italic*
 
-// **bold** *italic*
+#### What state is this code in?
 
-// #### Why am I sending this code?
+This represents 3 versions:
++Count method clean code
++Count method with logs for console prints
++String builder
 
-// #### What state is this code in?
+#### Why am I committing this code?
 
-// #### What might be wrong that is not outlined in comments?
+I'm mostly done.
 
+#### What might be wrong that is not outlined in comments?
 
-// [Link to Whatever](https://www.google.com/)
-// [I'm a relative reference to a repository file](../blob/master/LICENSE)
-// `;
+String builder thousands is not fully finished
 
-// console.log(beClearToEric);
+#### TODO
+
++String builder hundreds place when number is in thousands
++Update string builder to account for any size number
+  +Perhaps start with intmax since this is js then go to bigint
+
+[Link to Whatever](https://www.google.com/)
+[I'm a relative reference to a repository file](../blob/master/LICENSE)
+`;
+
+console.log(splainYoSelf);
