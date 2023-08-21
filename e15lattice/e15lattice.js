@@ -1,6 +1,6 @@
 
 //using algorithm
-//binomial theorem
+//binomial theorem see more at https://www.cuemath.com/algebra/binomial-theorem/
 
 let factorial = (num) => {
 	num = BigInt(num);
