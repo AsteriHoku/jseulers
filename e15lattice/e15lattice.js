@@ -1,45 +1,19 @@
-console.log("Hallo!");
 
-const cube = [
-    [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],
-    [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],
-    [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],
-    [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],
-    [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],
-    [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],
-    [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],
-    [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],
-    [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],
-    [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],
-    [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],
-    [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],
-    [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],
-    [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],
-    [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],
-    [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],
-    [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],
-    [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],
-    [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],
-    [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1]
-  ];
+//using algorithm
+//binomial theorem
 
-let count = 2; //start counting the outside paths
-
-//straight down each column & straight across each row
-count += (cube[0].length + 1) * 2;
-
-// const cube = [[1,2],[3,4]];
-// console.log(`${cube[0][0]}, ${cube[0][1]}`);
-// console.log(`${cube[1][0]}, ${cube[1][1]}`);
-// console.log(cube.length);
-
-//for each column and row, length - 1 ways
-count += Math.pow((cube.length - 1), 2);
-
-//for each square
-for (let i = 0; i < cube.length; ++i){
-    for (let j = 0; j < cube.length; ++j){
-        count += Math.pow((cube.length - 1), 2);
-    }
+let factorial = (num) => {
+	num = BigInt(num);
+	if ( num <= 1n )
+		return 1n;
+	return num * factorial(num - 1n);
 }
-console.log(`Count is ${count}`);
+
+let paths = (gridSize) => {
+    let n = 2 * gridSize;//number of choices (right or down)
+    let k = gridSize;//number of times you can make each choice
+
+    return factorial(n) / (factorial(k) * factorial(n-k));
+}
+
+console.log(`Paths = ${paths(20)}`);
